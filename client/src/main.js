@@ -119,8 +119,8 @@ angular.module('myApp')
               console.log('data.data', data.data)
               $scope.exchange = data.data
               $scope.destination = {
-                from:'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.from+"&tbm=nws",
-                to: 'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.to+"&tbm=nws"
+                from:'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.from+"+currency&tbm=nws",
+                to: 'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.to+"+currency&tbm=nws"
               }
               $scope.loading = false
             })

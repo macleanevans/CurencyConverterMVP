@@ -2,11 +2,13 @@
 
 <div id="container">
         <div id="header">
-        <p>Currency Converter</p>
+        <p class='first'>Currency Converter</p>
     </div>
 
-    <div id="primary">
-       <p>Exchange Rate Search</p>
+   <div id='body'>
+
+    <div class = 'mainDiv' id="primary">
+       <p class = "subPs">Exchange Rate Search</p>
         <form class = 'startCountry'> From: <br>
               <input ng-model ='exchange.from' type ='text' placeholder = 'Enter Currency'></input>
           </form><br>
@@ -19,9 +21,9 @@
           <button ng-click = 'getRate()' class = 'calc'>Convert</button>
     </div>
 
-    <div id="content" >
-        <p class='CR'>Current Rate</p>
-            <table>
+    <div id="content" class = 'mainDiv'>
+        <p class='subPs'>Current Rate</p>
+            <table class ='table'>
               <tr>
                 <th>{{ exchange.from_amount }} {{ exchange.from}} = </th>
                 <th><img src="images/gears.gif" ng-show = 'loading'>{{ exchange.to_amount }} {{ exchange.to }}</th>
@@ -29,15 +31,15 @@
             </table>
 
            <a target ="_blank" ng-href= "{{url.from}}" ng-click = 'openNewTab()'>
-            <button ng-show ="(exchange.to_amount)!== null">Click to see news on {{exchange.from}}</button>
+            <button class = 'leftButton' ng-show ="(exchange.to_amount)!== null">Click to see news on {{exchange.from}}</button>
            </a>
            <a target = "_blank" ng-href = "{{url.to}}" ng-click = 'openNewTab()'>
-            <button ng-show ="(exchange.to_amount)!== null">See news on {{exchange.to}}</button>
+            <button class ="rightButton" ng-show ="(exchange.to_amount)!== null">See news on {{exchange.to}}</button>
            </a>
     </div>
 
-    <div id="secondary">
-        <p>Currency Search</p>
+    <div class = 'mainDiv' id="secondary">
+        <p class = 'subPs'>Currency Search</p>
          <input class = 'searchbar' type='text' ng-model ='search' placeholder = 'Search For Currency' >
             <table>
               <tr ng-repeat = "x in data | filter: search | orderBy: 'abbrev'">
@@ -46,6 +48,7 @@
                 <span ng-show="(data | filter:search).length === 0">No Results</span>
               </tr>
             </table>
+          </div>
     </div>
 
 
