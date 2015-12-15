@@ -1,0 +1,108 @@
+<!-- <div class='jumbotron'>
+  <h1>{{welcome}}</h1>
+  <a class='btn' ui-sref='about'>{{buttonText}}</a>
+</div>
+<div class = 'inputs'>
+  <form class = 'startCountry'>
+    <input type="text" placeholder = 'converted from'></input>
+  </form>
+  <form>
+    <input type='text' placeholder = 'converted to'></input>
+  </form>
+  <form>
+    <input type = 'number' placeholder = '1'></input>
+  </form>
+  <button class ='button'>Convert</button>
+ </div>
+<div ui-view></div>
+
+<body>
+  <div class = 'result'>
+    <span>Converted Value</span>
+  </div> -->
+
+<!--
+<body>
+<header>
+<h1>Currency Converter</h1>
+</header>
+
+<nav>
+  <div class= 'inputs'>
+    <form class = 'startCountry'> From: <br>
+      <input ng-model ='exchange.from' type ='text' placeholder = 'Enter Currency'></input>
+  </form><br>
+  <form class = 'endCountry'> To: <br>
+      <input ng-model ='exchange.to' type ='text' placeholder = 'Enter Currency'></input>
+  </form><br>
+  <form class = 'volume'> Amount: <br>
+      <input ng-model = 'exchange.from_amount' type ='number' placeholder = 'Enter Amount'></input>
+  </form><br>
+
+  <button ng-click = 'getRate()' class = 'calc'>Convert</button>
+</nav>
+<section>
+<h1 class = 'resultTitle'>Result<h1>
+<table>
+  <tr>
+    <th>{{ exchange.from_amount }} {{ exchange.from}} = </th>
+    <th>{{ exchange.to_amount }} {{ exchange.to }}</th>
+   </tr>
+   </table>
+</section>
+
+<section>
+<h1 class = 'CurTitle'>Currency Abbreviation Search</h1>
+  <input class = 'searchbar' type='text' ng-model ='search' placeholder = 'Search For Currency' >
+        <table>
+          <tr ng-repeat = "x in data | filter: search | orderBy: 'abbrev'">
+            <td>{{x.country}}</td>
+            <td>{{x.abbrev}}</td>
+            <span ng-show="(data | filter:search).length === 0">No Results</span>
+      </tr>
+    </table>
+</section>
+ -->
+
+<div id="container">
+        <div id="header">
+        <p>Currency Converter</p>
+    </div>
+
+    <div id="primary">
+       <p>Exchange Rate Search</p>
+        <form class = 'startCountry'> From: <br>
+              <input ng-model ='exchange.from' type ='text' placeholder = 'Enter Currency'></input>
+          </form><br>
+          <form class = 'endCountry'> To: <br>
+              <input ng-model ='exchange.to' type ='text' placeholder = 'Enter Currency'></input>
+          </form><br>
+          <form class = 'volume'> Amount: <br>
+              <input ng-model = 'exchange.from_amount' type ='number' placeholder = 'Enter Amount'></input>
+          </form><br>
+          <button ng-click = 'getRate()' class = 'calc'>Convert</button>
+    </div>
+
+    <div id="content">
+        <p class='CR'>Current Rate</p>
+            <table>
+              <tr>
+                <th>{{ exchange.from_amount }} {{ exchange.from}} = </th>
+                <th>{{ exchange.to_amount }} {{ exchange.to }}</th>
+               </tr>
+            </table>
+    </div>
+
+    <div id="secondary">
+        <p>Currency Search</p>
+         <input class = 'searchbar' type='text' ng-model ='search' placeholder = 'Search For Currency' >
+            <table>
+              <tr ng-repeat = "x in data | filter: search | orderBy: 'abbrev'">
+                <td>{{x.country}}</td>
+                <td>{{x.abbrev}}</td>
+                <span ng-show="(data | filter:search).length === 0">No Results</span>
+              </tr>
+            </table>
+    </div>
+
+
