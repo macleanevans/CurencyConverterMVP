@@ -97,6 +97,9 @@ angular.module('myApp')
            to_amount : null
           };
 
+          $scope.destination = null;
+
+
 
 
           $scope.getRate = function() {
@@ -105,11 +108,18 @@ angular.module('myApp')
               console.log('data',data)
               console.log('data.data', data.data)
               $scope.exchange = data.data
+              $scope.destination = 'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.from+"&tbm=nws"
             })
             .catch(function(err){
               console.log(err);
             })
           }
+
+          $scope.openTabFrom = function() {
+            $scope.url = $scope.destination
+          }
+
+          //make another one of these for "to" and change the html
 
     }
   )
