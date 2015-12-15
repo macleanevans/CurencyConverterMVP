@@ -19,18 +19,19 @@
           <button ng-click = 'getRate()' class = 'calc'>Convert</button>
     </div>
 
-    <div id="content">
+    <div id="content" >
         <p class='CR'>Current Rate</p>
             <table>
               <tr>
                 <th>{{ exchange.from_amount }} {{ exchange.from}} = </th>
-                <th>{{ exchange.to_amount }} {{ exchange.to }}</th>
+                <th><img src="images/gears.gif" ng-show = 'loading'>{{ exchange.to_amount }} {{ exchange.to }}</th>
                </tr>
             </table>
-           <a target ="_blank" ng-href= "{{destination}}" ng-click = 'openTab()'>
-            <button ng-show ="(exchange.to_amount)!== null">Click to see news on {{ exchange.from}}</button>
+
+           <a target ="_blank" ng-href= "{{url.from}}" ng-click = 'openNewTab()'>
+            <button ng-show ="(exchange.to_amount)!== null">Click to see news on {{exchange.from}}</button>
            </a>
-           <a ng-href="https://www.google.com/?gws_rd=ssl#q={{exchange.to}}&tbm=nws">
+           <a target = "_blank" ng-href = "{{url.to}}" ng-click = 'openNewTab()'>
             <button ng-show ="(exchange.to_amount)!== null">See news on {{exchange.to}}</button>
            </a>
     </div>

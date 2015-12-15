@@ -89,6 +89,8 @@ angular.module('myApp')
                  }
                   ];
 
+           $scope.currency = ['USD', 'TRY', 'THB', 'TWD', 'CHF', 'SEK', 'SGD', 'RUB', 'GBP', 'PLN', 'PHP', 'NZD', 'NOK', 'MXN', 'MYR', 'JPY', 'ILS', 'HUF', 'HKD', 'EUR', 'DKK', 'CZK', 'CHF', 'CAD', 'BRL', 'AUD']
+
 
           $scope.exchange ={
            from : null,
@@ -98,26 +100,42 @@ angular.module('myApp')
           };
 
           $scope.destination = null;
+          $scope.url = {};
 
-
+          $scope.loading = false;
 
 
           $scope.getRate = function() {
+
+            if($scope.currency.indexOf($scope.exchange.from) === -1) {
+             return  alert($scope.exchange.from + " is not a supported currency")
+            } else if ($scope.currency.indexOf($scope.exchange.to) === -1) {
+              return alert($scope.exchange.to + " is not a supported currency")
+            } else {
+            $scope.loading = true;
             ExchangeRate.sendInputs($scope.exchange)
             .then(function(data) {
               console.log('data',data)
               console.log('data.data', data.data)
               $scope.exchange = data.data
-              $scope.destination = 'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.from+"&tbm=nws"
+              $scope.destination = {
+                from:'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.from+"&tbm=nws",
+                to: 'https://www.google.com/?gws_rd=ssl#q=' + $scope.exchange.to+"&tbm=nws"
+              }
+              $scope.loading = false
             })
             .catch(function(err){
               console.log(err);
             })
           }
+        }
 
-          $scope.openTabFrom = function() {
-            $scope.url = $scope.destination
+          $scope.openNewTab = function() {
+            $scope.url.from = $scope.destination.from
+            $scope.url.to = $scope.destination.to
           }
+
+
 
           //make another one of these for "to" and change the html
 
