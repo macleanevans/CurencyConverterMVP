@@ -116,6 +116,7 @@ table, th, td {
     width:33%;
     padding-top: 2px;
     padding-bottom :10px
+
 }
 
 #secondary {
@@ -151,7 +152,7 @@ input {
 }
 
 .first{
-  margin-right:225px;
+  margin-right:350px;
   font-weight: bold;
   font-size: 230%;
 }
@@ -163,4 +164,10 @@ input {
 .subPs {
   font-size: 150%
 }
+
+#rate {
+  margin-left: 130px
+}
+
+
 

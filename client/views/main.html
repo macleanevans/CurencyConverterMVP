@@ -22,16 +22,16 @@
     </div>
 
     <div id="content" class = 'mainDiv'>
-        <p class='subPs'>Current Rate</p>
+        <p id ="rate" class='subPs'>Current Rate</p>
             <table class ='table'>
               <tr>
-                <th>{{ exchange.from_amount }} {{ exchange.from}} = </th>
+                <th>{{ exchange.from_amount }} {{exchange.from}} = </th>
                 <th><img src="images/gears.gif" ng-show = 'loading'>{{ exchange.to_amount }} {{ exchange.to }}</th>
                </tr>
             </table>
 
            <a target ="_blank" ng-href= "{{url.from}}" ng-click = 'openNewTab()'>
-            <button class = 'leftButton' ng-show ="(exchange.to_amount)!== null">Click to see news on {{exchange.from}}</button>
+            <button class = 'leftButton' ng-show = "(exchange.to_amount)!== null">Click to see news on {{exchange.from}} </button>
            </a>
            <a target = "_blank" ng-href = "{{url.to}}" ng-click = 'openNewTab()'>
             <button class ="rightButton" ng-show ="(exchange.to_amount)!== null">See news on {{exchange.to}}</button>
